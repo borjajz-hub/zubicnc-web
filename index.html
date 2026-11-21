@@ -370,6 +370,31 @@
 
 <a class="flotante" href="#contacto">Pedir presupuesto</a>
 
+
+<section class="boletin" aria-labelledby="t-boletin">
+  <div class="envoltura boletin-rejilla">
+    <div>
+      <h2 id="t-boletin">Newsletter de ZubiCNC</h2>
+      <p>Trabajos recientes, fechas de cursos y consejos de impresión 3D y láser. Un correo de vez en cuando, sin spam. Te puedes dar de baja cuando quieras.</p>
+    </div>
+    <form class="boletin-form" id="boletin" method="POST" action="https://d877888e.sibforms.com/serve/MUIFAEfis2u8RwU1lr7JgtAMl5njdn7M_gljGWPo24Re3lh4VmlA2PfOpASpAU9wXZC6llVub7yEHJsruekaxaCGAG6CgK1GRWWi_t4xKszZDb2m7WwhixEhTGv1fS5VcrXIqrIpw5vN3uyg4eKwKrQIlj57k96OCuPqHhlWIzm__MV_EtTaIaQKBCvzfD979-TrT1pbebNlPGhv2w==">
+      <div class="boletin-fila">
+        <label class="sr-only" for="b-email">Tu correo electrónico</label>
+        <input id="b-email" type="email" name="EMAIL" autocomplete="email" placeholder="Tu correo electrónico" required>
+        <button class="boton boton-lleno" type="submit">Suscribirme</button>
+      </div>
+      <input type="text" name="email_address_check" value="" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="locale" value="es">
+      <input type="hidden" name="html_type" value="simple">
+      <label class="acepto">
+        <input type="checkbox" required>
+        <span>Acepto recibir la newsletter y la <a href="aviso-legal.html#datos">política de privacidad</a>.</span>
+      </label>
+      <p class="boletin-estado" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <footer class="pie">
   <div class="envoltura">
     <span>© 2026 ZubiCNC · Borja Jerez Zubieta</span>
@@ -377,5 +402,26 @@
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var f=document.getElementById('boletin'); if(!f) return;
+  var estado=f.querySelector('.boletin-estado');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=f.querySelector('button'); btn.disabled=true;
+    estado.textContent='Enviando…'; estado.className='boletin-estado';
+    var datos=new URLSearchParams(new FormData(f));
+    var ok=function(){ estado.textContent='Casi listo: te hemos enviado un correo. Pulsa el enlace para confirmar la suscripción.'; estado.className='boletin-estado ok'; f.reset(); btn.disabled=false; };
+    var ko=function(){ estado.textContent='No se ha podido completar la suscripción. Inténtalo de nuevo o escríbenos a bjerez@zubicnc.es.'; estado.className='boletin-estado ko'; btn.disabled=false; };
+    fetch(f.action,{method:'POST',body:datos})
+      .then(function(r){ return r.json().catch(function(){return {success:r.ok};}); })
+      .then(function(j){ (j && j.success!==false) ? ok() : ko(); })
+      .catch(function(){
+        fetch(f.action,{method:'POST',mode:'no-cors',body:datos}).then(ok).catch(ko);
+      });
+  });
+})();
+</script>
 </body>
 </html>

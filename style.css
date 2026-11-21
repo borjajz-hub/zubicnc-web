@@ -570,3 +570,25 @@ section[id], main[id] { scroll-margin-top: 4.5rem; }
 @media (max-width: 900px) { .portada-plano { justify-self: start; width: min(100%, 380px); } }
 @media (max-width: 640px) { .portada-plano { display: none; } }
 .taller { align-items: start; }
+
+/* Newsletter */
+.boletin { background: #0F161F; color: #fff; border-top: 1px solid #243041; padding: clamp(2.5rem, 5vw, 3.5rem) 0; }
+.boletin-rejilla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 1.5rem 4rem; align-items: center; }
+.boletin h2 { margin: 0 0 0.5rem; font-weight: 800; font-stretch: 112%; font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.02em; }
+.boletin p { margin: 0; color: #9AA6B2; max-width: 46ch; }
+.boletin-form { display: grid; gap: 0.8rem; }
+.boletin-fila { display: flex; gap: 0.6rem; }
+.boletin-fila input {
+  flex: 1; min-width: 0; font: inherit; font-size: 1rem; color: var(--tinta);
+  background: #F4F7FA; border: 2px solid transparent; border-radius: 4px; padding: 0.75rem 0.9rem;
+}
+.boletin-fila input:focus { outline: none; border-color: #6F8BFF; background: #fff; }
+.boletin .boton-lleno { background: #3A5BF0; border-color: #3A5BF0; cursor: pointer; font-family: inherit; white-space: nowrap; }
+.boletin .boton-lleno:hover { background: #5574FF; border-color: #5574FF; }
+.boletin .boton-lleno:disabled { opacity: .6; cursor: wait; }
+.boletin .acepto { color: #9AA6B2; font-size: 0.88rem; }
+.boletin-estado { min-height: 1.2em; font-size: 0.95rem; margin: 0; }
+.boletin-estado.ok { color: #9BE3B4; }
+.boletin-estado.ko { color: #FFB4A8; }
+@media (max-width: 900px) { .boletin-rejilla { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .boletin-fila { flex-direction: column; } }
