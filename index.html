@@ -145,7 +145,7 @@
             <li>Proyectos de aula listos para usar con el alumnado</li>
             <li>Mantenimiento básico para que las máquinas no se queden paradas</li>
           </ul>
-          <a class="boton boton-lleno" href="mailto:bjerez@zubicnc.es?subject=Curso%20de%20impresi%C3%B3n%203D%20para%20centro%20educativo">Pedir información para mi centro</a>
+          <a class="boton boton-lleno" href="#contacto">Pedir información para mi centro</a>
         </article>
         <article class="curso">
           <h3>Para empresas</h3>
@@ -156,7 +156,7 @@
             <li>Diseño para fabricación aditiva con Fusion 360</li>
             <li>Mantenimiento y resolución de fallos de los equipos propios</li>
           </ul>
-          <a class="boton boton-borde" href="mailto:bjerez@zubicnc.es?subject=Curso%20de%20impresi%C3%B3n%203D%20para%20empresa">Pedir información para mi empresa</a>
+          <a class="boton boton-borde" href="#contacto">Pedir información para mi empresa</a>
         </article>
       </div>
       <p class="nota-cursos">Cursos presenciales en tu centro o empresa, con contenido, duración y nivel ajustados al grupo.</p>
@@ -243,15 +243,60 @@
 
   <section class="seccion contacto" id="contacto" aria-labelledby="t-contacto">
     <div class="envoltura contacto-rejilla">
-      <div>
+      <div class="contacto-info">
         <h2 class="titulo-seccion" id="t-contacto">Cuéntanos tu proyecto</h2>
-        <p>Escríbenos con lo que necesitas y, si puedes, añade fotos, medidas o el archivo. Te respondemos con una propuesta.</p>
-        <a class="correo-grande" href="mailto:bjerez@zubicnc.es">bjerez@zubicnc.es</a>
+        <p>Rellena el formulario y te respondemos con una propuesta. Si tienes fotos, planos o archivos, nos los mandas cuando te contestemos.</p>
+        <dl class="datos">
+          <div><dt>Correo</dt><dd><a href="mailto:bjerez@zubicnc.es">bjerez@zubicnc.es</a></dd></div>
+          <div><dt>Taller</dt><dd>Villaseca de la Sagra, 45260 Toledo</dd></div>
+          <div><dt>Zona de trabajo</dt><dd>La Sagra, Toledo y Madrid. Envíos a toda España.</dd></div>
+        </dl>
       </div>
-      <dl class="datos">
-        <div><dt>Taller</dt><dd>Villaseca de la Sagra, 45260 Toledo</dd></div>
-        <div><dt>Zona de trabajo</dt><dd>La Sagra, Toledo y Madrid. Envíos a toda España.</dd></div>
-      </dl>
+
+      <form class="formulario" action="https://formsubmit.co/bjerez@zubicnc.es" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo contacto desde zubicnc.es">
+        <input type="hidden" name="_next" value="https://zubicnc.es/gracias.html">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="campo">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="Nombre" type="text" autocomplete="name" required>
+        </div>
+        <div class="campo-doble">
+          <div class="campo">
+            <label for="f-email">Correo electrónico</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="f-tel">Teléfono <span>(opcional)</span></label>
+            <input id="f-tel" name="Teléfono" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f-servicio">¿Qué necesitas?</label>
+          <select id="f-servicio" name="Servicio">
+            <option>Presupuesto de impresión 3D</option>
+            <option>Corte láser, grabado o corte de metal</option>
+            <option>Diseño o escaneado 3D</option>
+            <option>Máquina CNC a medida</option>
+            <option>Reparación de una máquina</option>
+            <option>Curso para centro educativo</option>
+            <option>Curso para empresa</option>
+            <option>Otra cosa</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Cuéntanos más</label>
+          <textarea id="f-mensaje" name="Mensaje" rows="5" required placeholder="Qué quieres hacer, medidas, material, cantidad, plazo…"></textarea>
+        </div>
+        <label class="acepto">
+          <input type="checkbox" name="Acepta privacidad" value="Sí" required>
+          <span>He leído y acepto la <a href="aviso-legal.html#datos">política de privacidad</a>.</span>
+        </label>
+        <button class="boton boton-lleno" type="submit">Enviar mensaje</button>
+      </form>
     </div>
   </section>
 
