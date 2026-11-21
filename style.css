@@ -96,8 +96,9 @@ a:hover { color: var(--cobalto-osc); }
   overflow: hidden;
   color: #fff;
   background:
-    repeating-linear-gradient(to bottom, rgba(255,255,255,.028) 0 2px, transparent 2px 9px),
-    radial-gradient(ellipse 70% 90% at 78% 45%, #2A3B52 0%, #18222F 55%, #111922 100%);
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    #131C27;
   padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(3.5rem, 8vw, 6rem);
 }
 .portada-rejilla {
@@ -108,29 +109,15 @@ a:hover { color: var(--cobalto-osc); }
 }
 .titular {
   margin: 0;
-  font-weight: 850;
-  font-stretch: 125%;
-  font-size: clamp(3rem, 6.6vw, 6.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  /* acero como las letras del logo: mitad superior clara, inferior gris, con líneas de capa */
-  background:
-    repeating-linear-gradient(to bottom, transparent 0 0.075em, rgba(17,25,34,.55) 0.075em 0.088em),
-    linear-gradient(to bottom, #FFFFFF 0%, #E3E9EF 50%, #9DAAB7 50.5%, #C4CDD6 100%);
-  background-size: 100% 100%, 100% 0.95em;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
-.titular .capa {
-  display: block;
-  animation: imprimir 1.6s steps(26, end) both;
-}
-.titular .capa:nth-child(2) { animation-delay: 0.55s; }
-
-@keyframes imprimir {
-  from { clip-path: inset(100% 0 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+.titular .capa { display: block; }
+.titular .capa:nth-child(2) { color: #AEB9C5; }
 }
 
 .entradilla {
@@ -160,7 +147,7 @@ a:hover { color: var(--cobalto-osc); }
 .boton {
   display: inline-block;
   padding: 0.85rem 1.35rem;
-  border-radius: 999px;
+  border-radius: 6px;
   font-weight: 650;
   font-size: 1rem;
   text-decoration: none;
@@ -178,9 +165,11 @@ a:hover { color: var(--cobalto-osc); }
 
 /* Franja de materiales */
 .materiales {
-  background: var(--cobalto);
-  color: #fff;
-  padding: 1.1rem 0;
+  background: #0F161F;
+  color: #8E9AA7;
+  padding: 1rem 0;
+  border-top: 1px solid #243041;
+  border-bottom: 1px solid #243041;
 }
 .materiales ul {
   list-style: none;
@@ -189,18 +178,17 @@ a:hover { color: var(--cobalto-osc); }
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0;
-  font-weight: 700;
-  font-stretch: 115%;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 500;
+  font-stretch: 100%;
+  font-size: 0.95rem;
 }
 .materiales li { display: inline-flex; align-items: center; }
 .materiales li:not(:last-child)::after {
   content: "";
   display: inline-block;
-  width: 6px; height: 6px;
-  margin: 0 1.1rem;
-  background: #9FB2FF;
-  transform: rotate(45deg);
+  width: 1px; height: 0.9rem;
+  margin: 0 0.8rem;
+  background: #3A4757;
 }
 
 /* ---------- Secciones ---------- */
@@ -242,9 +230,9 @@ a:hover { color: var(--cobalto-osc); }
   place-items: center;
   width: 3.25rem;
   height: 3.25rem;
-  border-radius: 12px;
+  border-radius: 4px;
   background: var(--tinta);
-  color: #9FB2FF;
+  color: #C9D2DC;
   margin-top: -0.35rem;
 }
 .icono svg { width: 30px; height: 30px; }
@@ -274,11 +262,11 @@ a:hover { color: var(--cobalto-osc); }
 }
 .curso {
   background: var(--aluminio);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
-  border-top: 6px solid var(--cobalto);
+  border-top: 3px solid var(--cobalto);
 }
-.curso:nth-child(2) { border-top-color: var(--bronce); }
+.curso:nth-child(2) { border-top-color: var(--tinta); }
 .curso h3 {
   margin: 0 0 0.35rem;
   font-size: clamp(1.5rem, 2.6vw, 2rem);
@@ -291,7 +279,7 @@ a:hover { color: var(--cobalto-osc); }
 .curso ul { margin: 0 0 1.75rem; padding-left: 1.15rem; }
 .curso li { margin-bottom: 0.5rem; }
 .curso li::marker { color: var(--cobalto); }
-.curso:nth-child(2) li::marker { color: var(--bronce); }
+.curso:nth-child(2) li::marker { color: var(--tinta); }
 .nota-cursos {
   margin: 2rem 0 0;
   color: var(--gris);
@@ -459,7 +447,7 @@ a:hover { color: var(--cobalto-osc); }
 .formulario {
   background: #1E2A38;
   border: 1px solid #34404E;
-  border-radius: 16px;
+  border-radius: 6px;
   padding: clamp(1.5rem, 3vw, 2.25rem);
   display: grid;
   gap: 1.1rem;
@@ -474,7 +462,7 @@ a:hover { color: var(--cobalto-osc); }
   color: var(--tinta);
   background: #F4F7FA;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0.7rem 0.85rem;
   width: 100%;
 }
@@ -502,7 +490,7 @@ a:hover { color: var(--cobalto-osc); }
 .ventajas li { display: flex; align-items: center; gap: 0.5rem; }
 .ventajas li::before {
   content: ""; width: 1.1rem; height: 1.1rem; flex: none;
-  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%23FFB547'/%3E%3Cpath d='M5.5 10.2l3 3 6-6.4' fill='none' stroke='%2316202C' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10.5l4 4 8-9' fill='none' stroke='%237F98FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 /* Ejemplos de trabajos */
@@ -513,7 +501,7 @@ a:hover { color: var(--cobalto-osc); }
 }
 .ejemplo {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 6px;
   overflow: hidden;
   border: 1px solid var(--linea);
 }
@@ -525,16 +513,16 @@ a:hover { color: var(--cobalto-osc); }
 .ejemplo p { margin: 0 1.25rem 1.35rem; color: var(--gris); font-size: 0.98rem; }
 
 /* Sectores */
-.sectores { background: var(--cobalto); color: #fff; }
+.sectores { background: #131C27; color: #fff; }
 .sectores .titulo-seccion { color: #fff; margin-bottom: 2.25rem; }
 .lista-sectores {
   list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0 2.5rem;
 }
-.lista-sectores li { border-top: 1px solid rgba(255,255,255,.3); padding: 1.1rem 0 1.4rem; }
+.lista-sectores li { border-top: 1px solid #2A3644; padding: 1.1rem 0 1.4rem; }
 .lista-sectores b { display: block; font-size: 1.2rem; font-weight: 750; font-stretch: 110%; margin-bottom: 0.3rem; }
-.lista-sectores span { color: #D3DBFF; }
+.lista-sectores span { color: #9AA6B2; }
 .seccion.sectores + .seccion { border-top: 0; }
 
 /* FAQ */
@@ -548,11 +536,11 @@ a:hover { color: var(--cobalto-osc); }
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: "+"; flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%;
-  display: grid; place-items: center; background: var(--tinta); color: #fff; font-weight: 500; font-size: 1.2rem;
+  content: "+"; flex: none; width: 1.6rem; height: 1.6rem;
+  display: grid; place-items: center; color: var(--tinta); font-weight: 400; font-size: 1.5rem;
   transition: transform .2s;
 }
-.faq details[open] summary::after { transform: rotate(45deg); background: var(--cobalto); }
+.faq details[open] summary::after { transform: rotate(45deg); color: var(--cobalto); }
 .faq details p { margin: 0 0 1.25rem; color: var(--gris); max-width: 62ch; }
 
 /* Botón flotante móvil */
@@ -567,7 +555,7 @@ a:hover { color: var(--cobalto-osc); }
   .flotante {
     display: block; position: fixed; z-index: 20;
     left: 1rem; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom));
-    text-align: center; padding: 0.95rem 1rem; border-radius: 999px;
+    text-align: center; padding: 0.95rem 1rem; border-radius: 6px;
     background: #3A5BF0; color: #fff; font-weight: 700; text-decoration: none;
     box-shadow: 0 10px 30px rgba(17,25,34,.35);
   }
@@ -576,3 +564,9 @@ a:hover { color: var(--cobalto-osc); }
 @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
 
 section[id], main[id] { scroll-margin-top: 4.5rem; }
+
+.portada-plano { justify-self: end; width: min(100%, 460px); }
+.portada-plano svg { width: 100%; height: auto; display: block; }
+@media (max-width: 900px) { .portada-plano { justify-self: start; width: min(100%, 380px); } }
+@media (max-width: 640px) { .portada-plano { display: none; } }
+.taller { align-items: start; }
