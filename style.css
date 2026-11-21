@@ -492,3 +492,87 @@ a:hover { color: var(--cobalto-osc); }
 .contacto .boton-lleno:hover { background: #5574FF; border-color: #5574FF; }
 .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 @media (max-width: 640px) { .campo-doble { grid-template-columns: 1fr; } }
+
+/* Ventajas en portada */
+.ventajas {
+  list-style: none; margin: 2.25rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem;
+  color: #C9D2DC; font-size: 0.95rem;
+}
+.ventajas li { display: flex; align-items: center; gap: 0.5rem; }
+.ventajas li::before {
+  content: ""; width: 1.1rem; height: 1.1rem; flex: none;
+  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%23FFB547'/%3E%3Cpath d='M5.5 10.2l3 3 6-6.4' fill='none' stroke='%2316202C' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Ejemplos de trabajos */
+.ejemplos {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+.ejemplo {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+}
+.ejemplo svg { width: 100%; height: auto; aspect-ratio: 160 / 110; }
+.ejemplo h3 {
+  margin: 1.1rem 1.25rem 0.35rem;
+  font-size: 1.2rem; font-weight: 750; font-stretch: 110%; letter-spacing: -0.01em;
+}
+.ejemplo p { margin: 0 1.25rem 1.35rem; color: var(--gris); font-size: 0.98rem; }
+
+/* Sectores */
+.sectores { background: var(--cobalto); color: #fff; }
+.sectores .titulo-seccion { color: #fff; margin-bottom: 2.25rem; }
+.lista-sectores {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2.5rem;
+}
+.lista-sectores li { border-top: 1px solid rgba(255,255,255,.3); padding: 1.1rem 0 1.4rem; }
+.lista-sectores b { display: block; font-size: 1.2rem; font-weight: 750; font-stretch: 110%; margin-bottom: 0.3rem; }
+.lista-sectores span { color: #D3DBFF; }
+.seccion.sectores + .seccion { border-top: 0; }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 2rem 4rem; align-items: start; }
+.faq-lista { border-top: 2px solid var(--tinta); }
+.faq details { border-bottom: 1px solid var(--linea); }
+.faq summary {
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; gap: 1rem; align-items: center;
+  padding: 1.15rem 0; font-weight: 650; font-size: 1.08rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  display: grid; place-items: center; background: var(--tinta); color: #fff; font-weight: 500; font-size: 1.2rem;
+  transition: transform .2s;
+}
+.faq details[open] summary::after { transform: rotate(45deg); background: var(--cobalto); }
+.faq details p { margin: 0 0 1.25rem; color: var(--gris); max-width: 62ch; }
+
+/* Botón flotante móvil */
+.flotante { display: none; }
+@media (max-width: 900px) {
+  .ejemplos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lista-sectores { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ejemplos, .lista-sectores { grid-template-columns: 1fr; }
+  .flotante {
+    display: block; position: fixed; z-index: 20;
+    left: 1rem; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom));
+    text-align: center; padding: 0.95rem 1rem; border-radius: 999px;
+    background: #3A5BF0; color: #fff; font-weight: 700; text-decoration: none;
+    box-shadow: 0 10px 30px rgba(17,25,34,.35);
+  }
+  .pie { padding-bottom: 4.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+
+section[id], main[id] { scroll-margin-top: 4.5rem; }
