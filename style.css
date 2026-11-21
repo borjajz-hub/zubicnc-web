@@ -505,7 +505,7 @@ a:hover { color: var(--cobalto-osc); }
   overflow: hidden;
   border: 1px solid var(--linea);
 }
-.ejemplo svg { width: 100%; height: auto; aspect-ratio: 160 / 110; }
+.ejemplo svg { width: 100%; height: auto; aspect-ratio: 320 / 220; display: block; border-bottom: 1px solid var(--linea); }
 .ejemplo h3 {
   margin: 1.1rem 1.25rem 0.35rem;
   font-size: 1.2rem; font-weight: 750; font-stretch: 110%; letter-spacing: -0.01em;
